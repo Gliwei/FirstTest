@@ -29,4 +29,10 @@ public class CommodityController {
 		System.out.println("CommodityController.findBySku()");
 		return commodityService.findBySku(sku);
 	}
+	
+	@RequestMapping("/{sku}")
+	public String commodity(Model model, @PathVariable("sku") String sku){
+		model.addAttribute("commodity", commodityService.findBySku(sku));
+		return "commodity";
+	}
 }
