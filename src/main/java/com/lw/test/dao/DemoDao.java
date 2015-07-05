@@ -13,7 +13,6 @@ public class DemoDao {
 		entity.setId(1);
 		entity.setName("Conan");
 		entity.setLastModifyDate(new Date());
-		System.out.println("WOWOWOWOW");
 		return entity;
 	}
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lw.basic.dao.BrandMapper">
+
+	<resultMap type="Brand" id="brandResultMap">
+		<id property="id" column="id" />
+		<result property="name" column="neme" />
+		<result property="description" column="description" />
+		<result property="version" column="version" />
+	</resultMap>
+
+	<!-- 查询，根据id -->
+	<select id="findById" parameterType="Integer" resultType="Brand" resultMap="brandResultMap">
+		SELECT * from Brand b where b.id=#{id}
+	</select>
+
+	<!-- 查询列表 -->
+	<select id="findAll" resultType="com.lw.basic.entity.Brand" resultMap="brandResultMap">
+		SELECT * from Brand
+	</select>
+
+</mapper>
