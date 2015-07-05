@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Commodity list</title>
-<link rel="stylesheet" type="text/css" href="/ft/css/leftFixed.css"/>
-<script type="text/javascript" src="/ft/js/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="/ft/js/leftFixed.js"></script>
+<link rel="stylesheet" type="text/css" href="/mall/css/leftFixed.css"/>
+<script type="text/javascript" src="/mall/js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="/mall/js/leftFixed.js"></script>
 </head>
 
 <body>

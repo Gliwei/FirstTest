@@ -212,7 +212,7 @@
 				<configuration>
 					<!-- <scanIntervalSeconds>10</scanIntervalSeconds> -->
 					<webApp>
-						<contextPath>/ft</contextPath>
+						<contextPath>/mall</contextPath>
 					</webApp>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
