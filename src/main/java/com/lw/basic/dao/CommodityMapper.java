@@ -2,6 +2,7 @@ package com.lw.basic.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Repository;
 
 import com.lw.basic.entity.Commodity;
@@ -13,5 +14,7 @@ public interface CommodityMapper{
 	
 	public List<Commodity> findAll();
 	
-//	public List<Commodity> findByPage();
+	public List<Commodity> findByPage(RowBounds rowBounds);
+	
+	public Integer count();
 }

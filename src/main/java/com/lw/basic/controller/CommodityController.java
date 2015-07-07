@@ -1,5 +1,7 @@
 package com.lw.basic.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +19,19 @@ public class CommodityController {
 
 	@Autowired CommodityService commodityService;
 	
+	private static final int pageSize = 10;
+	
 	@RequestMapping("/list")
 	public String list(Model model){
 		System.out.println("CommodityController.list()");
 		model.addAttribute("list", commodityService.getAll());
+		return "commodity-list";
+	}
+	
+	@RequestMapping("/list/{p}")
+	public String list(Model model, @PathVariable("p") int pageNo){
+		List<Commodity> list = commodityService.findByPage(pageNo, pageSize);
+		model.addAttribute("list", list);
 		return "commodity-list";
 	}
 	

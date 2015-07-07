@@ -43,7 +43,7 @@
                 </div>
                 <div class="commodity-box">
                     <ul class="clist">
-                    
+                    	
                     	<c:forEach items="${list}" var="item">
                         <li>
                             <div class="inner">
@@ -59,7 +59,9 @@
                             </div>
                         </li>
                         </c:forEach>
-                        
+                        <c:if test="${empty list}">
+                        	<div class="error-msg">没有商品</div>
+                       	</c:if>
                     </ul>
                 </div>
             </div>
