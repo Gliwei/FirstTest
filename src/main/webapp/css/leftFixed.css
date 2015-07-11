@@ -8,7 +8,8 @@ body {
 	font: 12px/1.5 tahoma,arial,"Hiragino Sans GB","瀹嬩綋",sans-serif;
 }
 .header {
-	background-color: #FAFAFA;
+	/* background-color: #FAFAFA; */
+	border-bottom: 2px solid #E4393C;
 }
 .container {
 	background-color: transparent;
@@ -28,6 +29,12 @@ body {
 .header .base, .footer .base {
 	width: 100%;
 }**/
+.top-bar {
+	height: 25px;
+	background-color: #FAFAFA;
+	color: red;
+	border-bottom: 1px solid #FCFCFC;
+}
 div.base {
 	/*涓轰簡浣垮唴閮ㄧ殑float鍏冪礌涔熷彲浠ユ拺寮�div*/
 	display: table;
@@ -42,32 +49,94 @@ div.base {
 	text-align: center;
 	line-height: 130px;
 }
-.search-wrap {
+.logo-line {
 	height: 120px;
 }
-.bar-warp {
-	height: 40px;
-	width: 100%;
-	background-color: #E4393C;
-}
-ul.bar li {
+.logo {
+	font-family: colonna MT;
+	/* font-family: optima; */
 	float: left;
-	color: #FAFAFA;
-	font-size: 20px;
-	padding: 0 25px;
-	line-height: 40px;
+	font-size: 72px;
+	color: #8a1747;
 	text-align: center;
-	display: block;
+	width: 210px;
+	height: 100%;
+	line-height: 130px;
 }
-ul.bar li:hover {
-	background-color: #bf152c;
+.search-warp {
+	margin-left: 220px;
+	padding-left: 120px;
+	/* background-color: #FAFAFA; */
+	height: 100%;
+}
+.s-box {
+	margin-top: 40px;
+	border: 2px solid #b5162a;
+	display: inline-block;
+}
+.s-inp {
+	height: 30px;
+	width: 450px;
+	border: none;
+	margin: 0;
+	padding: 0 8px;
+	font-size: 14px;
+}
+.s-sbm {
+	padding: 0;
+	margin: 0;
+	border: none;
+	background-color: #b5162a;
+	color: #FAFAFA;
+	font-size: 16px;
+	height: 34px;
+	line-height: 30px;
+	width: 100px;
+}
+.s-sbm:hover {
+	color: #FFF;
 	cursor: pointer;
 }
-ul.bar li.f {
-	padding: 0;
+.s-label-line a {
+	display: inline-block;
+	padding: 8px;
+	color: gray;
+	text-decoration: none;
+}
+.s-label-line a:hover {
+	text-decoration: underline;
+	color: orange;
+}
+.bar-warp {
+	height: 35px;
+	width: 100%;
+	font-size: 16px;
+}
+div.category {
+	float: left;
 	width: 210px;
-	background-color: #bf152c;
-	border-right: 1px solid #E4393C;
+	line-height: 35px;
+	height: 100%;
+	background-color: #E4393C;
+	color: #FFF;
+	text-align: center;
+}
+ul.top-menu {
+	margin-left: 220px;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+}
+ul.top-menu li {
+	display: inline-block;
+	padding: 0 20px;
+}
+ul.top-menu a {
+	text-decoration: none;
+	color: #333;
+}
+ul.top-menu a:hover {
+	color: #E4393C;
 }
 
 div.inner {
