@@ -33,7 +33,28 @@ body {
 	height: 25px;
 	background-color: #FAFAFA;
 	color: red;
-	border-bottom: 1px solid #FCFCFC;
+	border-bottom: 1px solid #EEE;
+}
+.top-bar ul.left-menu {
+	float: left;
+}
+.top-bar ul.right-menu {
+	float: right;
+}
+.top-bar ul li {
+	display: inline-block;
+	padding: 0 10px;
+	line-height: 28px;
+}
+.top-bar ul li a {
+	color: #999;
+	text-decoration: none;
+}
+.top-bar ul li a:hover {
+	color: #b5162a;
+}
+.top-bar ul.right-menu li {
+	display: inline-block;
 }
 div.base {
 	/*涓轰簡浣垮唴閮ㄧ殑float鍏冪礌涔熷彲浠ユ拺寮�div*/
