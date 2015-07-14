@@ -1,0 +1,31 @@
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #999;
+}
+a:hover {
+	color: #E4393C;
+}
+body {
+	font: 12px/1.5 tahoma,arial,"Hiragino Sans GB","瀹嬩綋",sans-serif;
+}
+div.base {
+	display: table;
+	width: 1200px;
+	min-width: 220px;
+	margin: 0 auto;
+	
+	/* border: 1px dashed #CCC; */
+}
+div.inner {
+	padding: 10px;
+}
+.error-msg {
+	color: red;
+	text-align: center;
+}

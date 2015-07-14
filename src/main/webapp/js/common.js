@@ -4,14 +4,15 @@ function modifyWidth(){
 	$("div.base").animate({"width":w},300);
 }
 $(function(){
-	// logo 变色
+	// Logo 变色
 	setInterval(function(){
 		var color = '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
 		$(".logo").animate({"color": color},3000);	
 	}, 3000);
 	
+	/** 左侧分类导航栏fixed
 	$(window).scroll(function(e) {
-		var fixedNode = $(".nav .inner");//需要浮动的元素节点
+		var fixedNode = $(".nav .left-nav");//需要浮动的元素节点
 		var scrollTop = $(window).scrollTop();
 		var headerHight = $(".header").height();
 		
@@ -23,5 +24,6 @@ $(function(){
 		}else{
 			fixedNode.css({"position":"static","width":"auto"});
 		}
-	});	
+	});
+	**/	
 });

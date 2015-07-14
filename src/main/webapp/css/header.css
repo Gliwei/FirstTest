@@ -1,0 +1,129 @@
+/* CSS Document */
+.header {
+	/* background-color: #FAFAFA; */
+	border-bottom: 2px solid #E4393C;
+}
+
+.top-bar {
+	height: 25px;
+	background-color: #FAFAFA;
+	color: red;
+	border-bottom: 1px solid #EEE;
+}
+.top-bar ul.left-menu {
+	float: left;
+}
+.top-bar ul.right-menu {
+	float: right;
+}
+.top-bar ul li {
+	display: inline-block;
+	padding: 0 10px;
+	line-height: 28px;
+}
+.top-bar ul li a {
+	color: #999;
+	text-decoration: none;
+}
+.top-bar ul li a:hover {
+	color: #b5162a;
+}
+.top-bar ul.right-menu li {
+	display: inline-block;
+}
+.header-inner {
+	height: 130px;
+	text-align: center;
+	line-height: 130px;
+}
+.logo-line {
+	height: 120px;
+}
+.logo {
+	font-family: colonna MT;
+	/* font-family: optima; */
+	float: left;
+	font-size: 72px;
+	color: #8a1747;
+	text-align: center;
+	width: 210px;
+	height: 100%;
+	line-height: 130px;
+}
+.search-warp {
+	margin-left: 220px;
+	padding-left: 120px;
+	/* background-color: #FAFAFA; */
+	height: 100%;
+}
+.s-box {
+	margin-top: 40px;
+	/* border: 2px solid #b5162a; */
+	border: 2px solid #E4393C;
+	display: inline-block;
+}
+.s-inp {
+	height: 30px;
+	width: 450px;
+	border: none;
+	margin: 0;
+	padding: 0 8px;
+	font-size: 14px;
+}
+.s-sbm {
+	padding: 0;
+	margin: 0;
+	border: none;
+	/* background-color: #b5162a; */
+	background-color: #E4393C;
+	color: #FAFAFA;
+	font-size: 16px;
+	height: 34px;
+	line-height: 30px;
+	width: 100px;
+}
+.s-sbm:hover {
+	color: #FFF;
+	cursor: pointer;
+}
+.s-label-line a {
+	display: inline-block;
+	padding: 8px;
+	color: gray;
+	text-decoration: none;
+}
+.s-label-line a:hover {
+	text-decoration: underline;
+	color: orange;
+}
+.bar-warp {
+	height: 35px;
+	width: 100%;
+	font-size: 16px;
+}
+div.category {
+	float: left;
+	width: 210px;
+	line-height: 35px;
+	height: 100%;
+	background-color: #E4393C;
+	color: #FFF;
+	text-align: center;
+}
+ul.top-menu {
+	margin-left: 220px;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+}
+ul.top-menu li {
+	display: inline-block;
+	padding: 0 20px;
+}
+ul.top-menu a {
+	text-decoration: none;
+	color: #333;
+}
+ul.top-menu a:hover {
+	color: #E4393C;
+}
