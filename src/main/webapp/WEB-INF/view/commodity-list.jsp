@@ -57,13 +57,67 @@
     <div class="container">
     	<div class="base">
     		<div class="nav">
-            	<div class="inner">
-                	This is nav
+            	<div class="left-nav">
+                	<div class="item">
+                		<div class="item-title"><a href="#">电子产品</a></div>
+                		<ul>
+                			<li><a href="#">笔记本电脑</a></li>
+                			<li><a href="#">智能手机</a></li>
+                			<li><a href="#">智能手表</a></li>
+                		</ul>
+                	</div>
+                	<div class="item">
+                		<div class="item-title"><a href="#">服饰鞋帽</a></div>
+                		<ul>
+                			<li><a href="#">T恤</a></li>
+                			<li><a href="#">牛仔裤</a></li>
+                			<li><a href="#">皮鞋</a></li>
+                		</ul>
+                	</div>
                 </div>
             </div>
             <div class="content">
             	<div class="select-box">
-                	select-box
+            		<div class="row">
+            			<div class="label">品牌:</div>
+            			<ul>
+            				<li><a href="#">Apple</a></li>
+            				<li><a href="#">Dell</a></li>
+            				<li><a href="#">联想</a></li>
+            			</ul>
+            		</div>
+            		<div class="row">
+            			<div class="label">CPU:</div>
+            			<ul>
+            				<li><a href="#">酷睿i3</a></li>
+            				<li><a href="#">酷睿i5</a></li>
+            				<li><a href="#">酷睿i7</a></li>
+            			</ul>
+            		</div>
+            		<div class="row">
+            			<div class="label">内存:</div>
+            			<ul>
+            				<li><a href="#">2G</a></li>
+            				<li><a href="#">4G</a></li>
+            				<li><a href="#">16G</a></li>
+            				<li><a href="#">26G</a></li>
+            				<li><a href="#">36G</a></li>
+            				<li><a href="#">46G</a></li>
+            				<li><a href="#">56G</a></li>
+            				<li><a href="#">66G</a></li>
+            				<li><a href="#">76G</a></li>
+            				<li><a href="#">882136G</a></li>
+            				<li><a href="#">886123G</a></li>
+            				<li><a href="#">883126G</a></li>
+            				<li><a href="#">8123186G</a></li>
+            				<li><a href="#">8836G</a></li>
+            				<li><a href="#">881236G</a></li>
+            				<li><a href="#">881236G</a></li>
+            				<li><a href="#">881236G</a></li>
+            				<li><a href="#">8286G</a></li>
+            				<li><a href="#">1886G</a></li>
+            			</ul>
+            		</div>
                 </div>
                 <div class="commodity-box">
                     <ul class="clist">
