@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lw.basic.dao.ProductMapper">
+
+	<resultMap type="product" id="productResultMap">
+		<id property="id" column="id" />
+		<result property="sku" column="spu" />
+		<result property="title" column="title" />
+		<result property="subTitle" column="subTitle" />
+	</resultMap>
+
+	<select id="findBySpu" parameterType="String" resultType="product">
+		SELECT * from G_Product p where p.spu=#{spu}
+	</select>
+
+</mapper>

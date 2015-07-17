@@ -2,8 +2,6 @@ package com.lw.basic.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
-
 import com.lw.util.BaseEntity;
 
 //@Entity

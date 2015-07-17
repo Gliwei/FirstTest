@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lw.basic.dao.CategoryMapper">
+
+	<resultMap id="categoryResultMap" type="Category">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <association property="parent" column="parentId" select="selectCategoryById"></association><!-- 递归查询，只能用select方式 -->
+        <collection property="children" column="id" ofType="Category" javaType="java.util.ArrayList"
+            select="selectCategoryChildren"></collection><!-- 递归查询，只能用select方式 -->
+    </resultMap>
+    <select id="selectAllCategory" resultMap="categoryResultMap" useCache="true">
+        select * from G_category where parentId is null;
+    </select>
+    <select id="selectCategoryById" resultMap="categoryResultMap"
+        parameterType="int">
+        select * from G_category where id=#{parentId}
+    </select>
+    <select id="selectCategoryChildren" resultMap="categoryResultMap"
+        parameterType="int">
+        select * from G_category where parentId=#{id}
+    </select>
+</mapper>
