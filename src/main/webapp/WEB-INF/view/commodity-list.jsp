@@ -14,7 +14,20 @@
     	<div class="base">
     		<div class="nav">
             	<div class="left-nav">
-                	<div class="item">
+            		<c:forEach items="${category}" var="item">
+						<!-- ${item.name} -->
+						<c:forEach items="${item.children}" var="c1">
+							<div class="item">
+		                		<div class="item-title"><a href="#">${c1.name}</a></div>
+		                		<ul>
+									<c:forEach items="${c1.children}" var="c2">
+									<li><a href="#">${c2.name}</a></li>
+									</c:forEach>
+		                		</ul>
+		                	</div>
+						</c:forEach>
+					</c:forEach>
+                	<!-- <div class="item">
                 		<div class="item-title"><a href="#">电子产品</a></div>
                 		<ul>
                 			<li><a href="#">笔记本电脑</a></li>
@@ -29,7 +42,7 @@
                 			<li><a href="#">牛仔裤</a></li>
                 			<li><a href="#">皮鞋</a></li>
                 		</ul>
-                	</div>
+                	</div> -->
                 </div>
             </div>
             <div class="content">
@@ -87,9 +100,13 @@
                                     </a>
                                 </div>
                                 <div class="c-title">
-                                    <a href="${item.sku}">${item.title} ${item.subtitle}</a>
+                                    <a href="${item.sku}">
+                                    	${item.title} ${item.subtitle}
+                                   	</a>
                                 </div>
                                 <div class="c-price"><strong>￥${item.salePrice}</strong></div>
+                                <div class="c-re-num">已有<span class="blue">60</span>人评价</div>
+                                <div class="c-store">苹果官方旗舰店<span class="FGM">G-Mall自营</span></div>
                             </div>
                         </li>
                         </c:forEach>
