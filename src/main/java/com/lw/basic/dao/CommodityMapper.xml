@@ -11,19 +11,19 @@
 
 	<!-- 查询商品，根据sku -->
 	<select id="findBySku" parameterType="String" resultType="commodity">
-		SELECT * from Commodity c where c.sku=#{sku}
+		SELECT * from g_commodity c where c.sku=#{sku}
 	</select>
 
 	<!-- 查询商品列表 -->
 	<select id="findAll" resultType="commodity">
-		SELECT * from Commodity
+		SELECT * from g_commodity
 	</select>
 	
 	<select id="findByPage" resultType="commodity">
-		SELECT * from Commodity
+		SELECT * from g_commodity
 	</select>
 
 	<select id="count" resultType="int">
-		SELECT count(0) from Commodity
+		SELECT count(0) from g_commodity
 	</select>
 </mapper>

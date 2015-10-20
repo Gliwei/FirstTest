@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lw.basic.entity.Commodity;
+import com.lw.basic.service.CategoryService;
 import com.lw.basic.service.CommodityService;
 
 
@@ -18,6 +19,7 @@ import com.lw.basic.service.CommodityService;
 public class CommodityController {
 
 	@Autowired CommodityService commodityService;
+	@Autowired CategoryService categoryService;
 	
 	private static final int pageSize = 10;
 	
@@ -25,6 +27,7 @@ public class CommodityController {
 	public String list(Model model){
 		System.out.println("CommodityController.list()");
 		model.addAttribute("list", commodityService.getAll());
+		model.addAttribute("category", categoryService.finAll());
 		return "commodity-list";
 	}
 	

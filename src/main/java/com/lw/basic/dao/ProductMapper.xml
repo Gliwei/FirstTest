@@ -10,7 +10,7 @@
 	</resultMap>
 
 	<select id="findBySpu" parameterType="String" resultType="product">
-		SELECT * from G_Product p where p.spu=#{spu}
+		SELECT * from g_product p where p.spu=#{spu}
 	</select>
 
 </mapper>
