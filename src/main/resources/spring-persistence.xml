@@ -5,13 +5,8 @@
     http://www.springframework.org/schema/tx/spring-tx.xsd ">
 
 	<!--配置数据源 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<!-- <property name="url" value="jdbc:mysql://10.211.55.5:3306/MallDB" /> -->
-		<property name="url" value="jdbc:mysql://localhost:3306/test" />
-		<property name="username" value="root" />
-		<property name="password" value="123456" />
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/mall"/>
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -25,7 +20,6 @@
 		<property name="basePackage" value="com.lw" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-
 
 	<!-- 配置事物 -->
 	<bean id="transactionManager"
