@@ -227,7 +227,7 @@
 				<configuration>
 					<!-- <scanIntervalSeconds>10</scanIntervalSeconds> -->
 					<webApp>
-						<contextPath>/mall</contextPath>
+						<contextPath>/Mall</contextPath>
 					</webApp>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

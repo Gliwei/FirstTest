@@ -11,12 +11,12 @@
 
 	<!-- 查询，根据id -->
 	<select id="findById" parameterType="Integer" resultType="Brand" resultMap="brandResultMap">
-		SELECT * from g_brand b where b.id=#{id}
+		SELECT * from brand b where b.id=#{id}
 	</select>
 
 	<!-- 查询列表 -->
 	<select id="findAll" resultType="com.lw.basic.entity.Brand" resultMap="brandResultMap">
-		SELECT * from g_brand
+		SELECT * from brand
 	</select>
 
 </mapper>

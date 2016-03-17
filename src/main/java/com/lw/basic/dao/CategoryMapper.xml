@@ -10,14 +10,14 @@
             select="selectCategoryChildren"></collection><!-- 递归查询，只能用select方式 -->
     </resultMap>
     <select id="selectAllCategory" resultMap="categoryResultMap" useCache="true">
-        select * from g_category where parentId is null;
+        select * from category where parentId is null;
     </select>
     <select id="selectCategoryById" resultMap="categoryResultMap"
         parameterType="int">
-        select * from g_category where id=#{parentId}
+        select * from category where id=#{parentId}
     </select>
     <select id="selectCategoryChildren" resultMap="categoryResultMap"
         parameterType="int">
-        select * from g_category where parentId=#{id}
+        select * from category where parentId=#{id}
     </select>
 </mapper>

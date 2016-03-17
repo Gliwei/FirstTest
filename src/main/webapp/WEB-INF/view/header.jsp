@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" type="text/css" href="/mall/css/common.css"/>
-<link rel="stylesheet" type="text/css" href="/mall/css/header.css"/>
-<script type="text/javascript" src="/mall/js/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="/mall/js/jquery-color.js"></script>
-<script type="text/javascript" src="/mall/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="/Mall/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="/Mall/css/header.css"/>
+<script type="text/javascript" src="/Mall/js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="/Mall/js/jquery-color.js"></script>
+<script type="text/javascript" src="/Mall/js/common.js"></script>
 
 <div class="header">
 	<div class="top-bar">
