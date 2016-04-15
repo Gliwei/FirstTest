@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Commodity list</title>
-<link rel="stylesheet" type="text/css" href="/Mall/css/commodity-list.css"/>
+<link rel="stylesheet" type="text/css" href="{rootPath}css/commodity-list.css"/>
 </head>
 
 <body>
