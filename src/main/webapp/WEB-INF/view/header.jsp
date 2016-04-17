@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" type="text/css" href="{rootPath}css/common.css"/>
-<link rel="stylesheet" type="text/css" href="{rootPath}css/header.css"/>
-<script type="text/javascript" src="{rootPath}js/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="{rootPath}js/jquery-color.js"></script>
-<script type="text/javascript" src="{rootPath}js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/common.css"/>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/header.css"/>
+<script type="text/javascript" src="${rootPath}js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="${rootPath}js/jquery-color.js"></script>
+<script type="text/javascript" src="${rootPath}js/common.js"></script>
 
 <div class="header">
 	<div class="top-bar">
@@ -25,7 +25,7 @@
 	</div>
    	<div class="base">
        	<div class="logo-line">
-       		<div class="logo">G-Mall</div>
+       		<div class="logo"><img src="${rootPath}images/logo.png" width="210px" style="margin-top: 30px"></div>
        		<div class="search-warp">
        			<div class="s-box">
        				<input class="s-inp" type="text" placeholder="输入关键字搜索"/>

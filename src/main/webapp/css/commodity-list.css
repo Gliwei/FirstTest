@@ -27,6 +27,7 @@
 }
 .container .content {
 	margin-left: 220px;
+	min-height: 1300px;
 	/* height: 1300px; */
 	
 	/* border: 1px dashed #9F0; */
