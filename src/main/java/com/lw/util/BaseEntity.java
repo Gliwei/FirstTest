@@ -3,17 +3,17 @@ package com.lw.util;
 import java.util.Date;
 
 public class BaseEntity {
-	private Integer id;
+	private String id;
 	
 	private Long version;
 	private String lastOperator;//操作者
 	private Date createTime;
 	private Date lastModifyTime;
 	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Long getVersion() {

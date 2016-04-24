@@ -17,14 +17,18 @@
             		<c:forEach items="${category}" var="item">
 						<!-- ${item.name} -->
 						<c:forEach items="${item.children}" var="c1">
-							<div class="item">
-		                		<div class="item-title"><a href="#">${c1.name}</a></div>
-		                		<ul>
-									<c:forEach items="${c1.children}" var="c2">
-									<li><a href="#">${c2.name}</a></li>
+							
+							<c:forEach items="${c1.children}" var="c2">
+								<div class="item">
+			                		<div class="item-title"><a href="#">${c2.name}</a></div>
+			                		<ul>									
+									<c:forEach items="${c2.children}" var="c3">
+										<li><a href="#">${c3.name}</a></li>		
 									</c:forEach>
-		                		</ul>
-		                	</div>
+									</ul>
+                				</div>
+							</c:forEach>
+		                		
 						</c:forEach>
 					</c:forEach>
                 	<!-- <div class="item">

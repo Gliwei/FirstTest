@@ -13,11 +13,11 @@
         select * from category where parentId is null;
     </select>
     <select id="selectCategoryById" resultMap="categoryResultMap"
-        parameterType="int">
+        parameterType="String">
         select * from category where id=#{parentId}
     </select>
     <select id="selectCategoryChildren" resultMap="categoryResultMap"
-        parameterType="int">
+        parameterType="String">
         select * from category where parentId=#{id}
     </select>
 </mapper>
