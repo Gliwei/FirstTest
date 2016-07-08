@@ -216,6 +216,19 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.28</version>
 		</dependency>
+		<!-- Solr -->
+		<dependency>
+               <artifactId>solr-solrj</artifactId>
+               <groupId>org.apache.solr</groupId>
+               <version>5.3.1</version>
+               <type>jar</type>
+               <scope>compile</scope>
+        </dependency>
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>Mall</finalName>

@@ -38,7 +38,6 @@ div.select-box {
 	border-bottom: none;
 }
 div.select-box .row {
-	display: table;
 	height: 30px;
 	line-height: 30px;
 	border-bottom: 1px dotted #EEE;
