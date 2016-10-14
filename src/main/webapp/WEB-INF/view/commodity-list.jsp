@@ -76,7 +76,7 @@
             				<li><a href="#">26G</a></li>
             				<li><a href="#">36G</a></li>
             				<li><a href="#">46G</a></li>
-            				<li><a href="#">56G</a></li>
+            				<!-- <li><a href="#">56G</a></li>
             				<li><a href="#">66G</a></li>
             				<li><a href="#">76G</a></li>
             				<li><a href="#">882136G</a></li>
@@ -88,7 +88,7 @@
             				<li><a href="#">881236G</a></li>
             				<li><a href="#">881236G</a></li>
             				<li><a href="#">8286G</a></li>
-            				<li><a href="#">1886G</a></li>
+            				<li><a href="#">1886G</a></li> -->
             			</ul>
             		</div>
                 </div>

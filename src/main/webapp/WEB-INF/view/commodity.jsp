@@ -7,6 +7,7 @@
 <title>Commodity List</title>
 </head>
 <body>
-		${commodity.id} <br> ${commodity.sku} <br> ${commodity.title} <br> ${commodity.subtitle}
+	<%@include file="header.jsp" %>
+	${commodity.id} <br> ${commodity.sku} <br> ${commodity.title} <br> ${commodity.subtitle}
 </body>
 </html>
