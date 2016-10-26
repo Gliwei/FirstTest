@@ -5,9 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Commodity List</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/commodity.css"/>
 </head>
 <body>
 	<%@include file="header.jsp" %>
-	${commodity.id} <br> ${commodity.sku} <br> ${commodity.title} <br> ${commodity.subtitle}
+	<div class="container">
+   		<div class="top">
+   			<div class="base">
+	    		<div class="left">
+	    			<div><img src="${commodity.mainPicture}"></div>
+	    		</div>
+	    		<div class="middle">
+					<div>${commodity.title}</div>
+					<div>${commodity.subtitle}</div>
+				</div>
+	    		<div class="right">right</div>
+    		</div>
+		</div>
+	</div>
+	<%@include file="footer.html" %>
 </body>
 </html>

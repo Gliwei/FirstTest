@@ -1,0 +1,24 @@
+/* CSS Document */
+.container .top {
+	background-color: #EEE;
+	padding: 15px 0;
+	height: 300px;
+}
+.container .top .base {
+	background: #FFF;
+}
+.container .top .left {
+	width: 30%;
+	height: 100%;
+	display: table-cell;
+}
+.container .top .middle {
+	width: 60%;
+	height: 100px;
+	display: table-cell;
+}
+.container .top .right {
+	width: 10%;
+	height: 100%;
+	display: table-cell;
+}

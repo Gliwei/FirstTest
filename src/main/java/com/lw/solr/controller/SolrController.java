@@ -32,9 +32,10 @@ public class SolrController {
 	@Autowired CategoryService categoryService;
 	@Autowired SpecService specService;
 	
+	@SuppressWarnings("resource")
 	@RequestMapping("/query")
 	public String query(Model m, String kw) throws SolrServerException, IOException {
-		HttpSolrClient client = new HttpSolrClient("http://123.56.255.58:8983/solr/test/");
+		HttpSolrClient client = new HttpSolrClient("http://115.29.37.6:8983/solr/commodity/");
 		SolrQuery query = new SolrQuery(StringUtils.isBlank(kw)?"":"*"+kw+"*");
 		
 		/** facet */
