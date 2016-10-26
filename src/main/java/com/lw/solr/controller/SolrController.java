@@ -38,6 +38,7 @@ public class SolrController {
 		HttpSolrClient client = new HttpSolrClient("http://115.29.37.6:8983/solr/commodity/");
 		SolrQuery query = new SolrQuery(StringUtils.isBlank(kw)?"":"*"+kw+"*");
 		
+		m.addAttribute("kw", kw);
 		/** facet */
 		query.setFacet(true);
 		query.addFacetField("spec"); // 设置需要facet的字段

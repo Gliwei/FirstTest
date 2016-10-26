@@ -27,10 +27,12 @@
        	<div class="logo-line">
        		<div class="logo"><img src="${rootPath}images/logo.png" width="210px" style="margin-top: 30px"></div>
        		<div class="search-warp">
+       			<form action="${rootPath}solr/query">
        			<div class="s-box">
-       				<input class="s-inp" type="text" placeholder="输入关键字搜索"/>
-       				<input class="s-sbm" type="button" value="Search"/>
+       				<input class="s-inp" type="text" name="kw" value="${kw}" placeholder="输入关键字搜索"/>
+       				<input class="s-sbm" type="submit" value="Search"/>
        			</div>
+       			</form>
        			<div class="s-label-line">
        				<a href="#">mac</a>
        				<a href="#">iPhone</a>

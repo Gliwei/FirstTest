@@ -1,4 +1,5 @@
 /* CSS Document */
+input,button,select,textarea{outline:none}
 .header {
 	/* background-color: #FAFAFA; */
 	border-bottom: 2px solid #E4393C;
@@ -69,6 +70,9 @@
 	margin: 0;
 	padding: 0 8px;
 	font-size: 14px;
+}
+.s-inp:FOCUS {
+	border: none;
 }
 .s-sbm {
 	padding: 0;
