@@ -10,15 +10,17 @@
 .container .top .left {
 	width: 30%;
 	height: 100%;
-	display: table-cell;
+	display: inline-block;
+	float: left;
 }
 .container .top .middle {
 	width: 60%;
 	height: 100px;
-	display: table-cell;
+	display: inline-block;
 }
 .container .top .right {
 	width: 10%;
 	height: 100%;
-	display: table-cell;
+	display: inline-block;
+	float: right;
 }

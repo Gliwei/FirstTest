@@ -22,6 +22,9 @@
 	    		<div class="right">right</div>
     		</div>
 		</div>
+		<div class="info">
+			${commodity.htmlDescription}
+		</div>
 	</div>
 	<%@include file="footer.html" %>
 </body>

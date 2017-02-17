@@ -10,8 +10,8 @@
 	<%@include file="header.jsp"%>
 	<div class="container">
 		<div class="base">
-			<h2>Hello World!</h2>
-			<a href="demo">DEMO LINK</a> <a href="c/list">All Commodity List LINK</a>
+			<a href="demo"><h3>DEMO LINK</h3></a>
+			<a href="c/list"><h3>All Commodity List LINK</h3></a>
 		</div>
 	</div>
 	<%@include file="footer.html"%>

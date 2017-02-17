@@ -2,16 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lw.basic.dao.CommodityMapper">
 
-	<resultMap type="commodity" id="commodityResultMap">
+	<resultMap id="commodityResultMap"  type="com.lw.basic.entity.Commodity" >
 		<id property="id" column="id" />
 		<result property="sku" column="sku" />
 		<result property="title" column="title" />
-		<result property="version" column="version" />
+		<result property="subtitle" column="subtitle" />
+		<result property="salePrice" column="salesrice" />
+		<result property="costPrice" column="costPrice" />
+		<result property="mainPicture" column="mainPicture" />
+		<result property="htmlDescription" column="htmlDescription" />
 	</resultMap>
+	
+	<sql id="baseColumn">
+		id,
+		sku,
+		title,
+		subtitle,
+		salePrice,
+		costPrice,
+		mainPicture,
+		htmlDescription
+	</sql>
 
 	<!-- 查询商品，根据sku -->
-	<select id="findBySku" parameterType="String" resultType="commodity">
-		SELECT * from commodity c where c.sku=#{sku}
+	<select id="findBySku" parameterType="String" resultMap="commodityResultMap">
+		SELECT <include refid="baseColumn" /> from commodity c where c.sku=#{sku}
 	</select>
 
 	<!-- 查询商品列表 -->

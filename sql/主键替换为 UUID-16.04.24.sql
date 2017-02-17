@@ -70,8 +70,8 @@ CREATE TABLE property(
 	createTime TIMESTAMP DEFAULT '1990-11-11 11:11:11',
 	lastModifyTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-	categoryId VARCHAR(32), -- 所属分类
-	FOREIGN KEY(categoryId) REFERENCES category(id),
+	productId VARCHAR(32), -- 所属产品
+	FOREIGN KEY(productId) REFERENCES product(id),
 	name VARCHAR(30) NOT NULL
 );
 

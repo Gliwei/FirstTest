@@ -35,7 +35,7 @@ public class SolrController {
 	@SuppressWarnings("resource")
 	@RequestMapping("/query")
 	public String query(Model m, String kw) throws SolrServerException, IOException {
-		HttpSolrClient client = new HttpSolrClient("http://115.29.37.6:8983/solr/commodity/");
+		HttpSolrClient client = new HttpSolrClient("http://114.215.223.6:8983/solr/commodity/");
 		SolrQuery query = new SolrQuery(StringUtils.isBlank(kw)?"":"*"+kw+"*");
 		
 		m.addAttribute("kw", kw);

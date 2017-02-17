@@ -7,6 +7,7 @@ import com.lw.util.BaseEntity;
 //@Entity
 public class Commodity extends BaseEntity{
 	
+	private String productId;
 	private String sku;
 	private String title;// 标题
 	private String subtitle;// 副标题
@@ -15,6 +16,13 @@ public class Commodity extends BaseEntity{
 	private BigDecimal costPrice;// 成本价
 	private String mainPicture;// 商品主图
 	private String htmlDescription;// 商品描述
+	
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
 	public String getSku() {
 		return sku;
 	}

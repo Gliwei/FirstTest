@@ -69,12 +69,12 @@
                         <li>
                             <div class="inner">
                                 <div class="c-picture">
-                                    <a href="${item.sku}">
+                                    <a href="${rootPath}c/${item.sku}">
                                         <img src="${item.mainPicture}" width="220px" hignt="220px">
                                     </a>
                                 </div>
                                 <div class="c-title">
-                                    <a href="${item.sku}">
+                                    <a href="${rootPath}c/${item.sku}">
                                     	${item.title} ${item.subtitle}
                                    	</a>
                                 </div>

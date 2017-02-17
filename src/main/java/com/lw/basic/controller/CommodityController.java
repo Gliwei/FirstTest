@@ -46,7 +46,8 @@ public class CommodityController {
 	
 	@RequestMapping("/{sku}")
 	public String commodity(Model model, @PathVariable("sku") String sku){
-		model.addAttribute("commodity", commodityService.findBySku(sku));
+		Commodity commodity = commodityService.findBySku(sku);
+		model.addAttribute("commodity", commodity);
 		return "commodity";
 	}
 }
