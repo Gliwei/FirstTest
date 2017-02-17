@@ -56,7 +56,7 @@
 	            			<div class="label">${spec[facets.key].name}：</div>
 	            			<ul>
 		            			<c:forEach items="${facets.value}" var="facetItem">
-		            				<li><a href="#">${facetItem}</a></li>
+		            				<li><a href="${rootPath}/solr/query?kw=${kw}&fq=spec:*&#58${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
 		            			</c:forEach>
 	            			</ul>
             			</div>

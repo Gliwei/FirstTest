@@ -23,6 +23,7 @@ import com.lw.basic.service.CategoryService;
 import com.lw.basic.service.SpecService;
 import com.lw.solr.service.SolrService;
 import com.lw.solr.vo.CommodityVo;
+import com.lw.solr.vo.SpecVo;
 
 @Controller
 @RequestMapping("/solr")
@@ -34,17 +35,24 @@ public class SolrController {
 	
 	@SuppressWarnings("resource")
 	@RequestMapping("/query")
-	public String query(Model m, String kw) throws SolrServerException, IOException {
+	public String query(Model m, String kw, String fq) throws SolrServerException, IOException {
 		HttpSolrClient client = new HttpSolrClient("http://114.215.223.6:8983/solr/commodity/");
 		SolrQuery query = new SolrQuery(StringUtils.isBlank(kw)?"":"*"+kw+"*");
 		
 		m.addAttribute("kw", kw);
+		m.addAttribute("fq", fq);
 		/** facet */
 		query.setFacet(true);
 		query.addFacetField("spec"); // 设置需要facet的字段
 		query.setFacetLimit(10); // 限制facet返回的数量
+		if(StringUtils.isNotBlank(fq)) {
+			String[] fqs = fq.split(",");
+			for(String s : fqs) {
+				query.addFilterQuery(s);
+			}
+		}
         QueryResponse response = client.query(query);
-        Map<String, List<String>> facets = solrService.getFacets(response);
+        Map<String, List<SpecVo>> facets = solrService.getFacets(response);
         m.addAttribute("facets", facets);
         String[] ids = {};
         ids = facets.keySet().toArray(ids);
