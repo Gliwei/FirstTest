@@ -3,6 +3,7 @@ package com.lw.solr.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -44,7 +46,6 @@ public class SolrController {
 		SolrQuery query = new SolrQuery(StringUtils.isBlank(kw)?"":"*"+kw+"*");
 		
 		m.addAttribute("kw", kw);
-		m.addAttribute("fq", fq);
 		
 		/** 拼装查询参数 */
 		query.setFacet(true);
@@ -53,18 +54,23 @@ public class SolrController {
 		// 过滤条件FilterQuery
 		Map<String, String> fqmap = new HashMap<>();
 		if(StringUtils.isNotBlank(fq)) {
-			String[] fqArr = getDistinct(fq.split(","));
+			String[] fqArr = getFilterQueryArray(fq);
 			m.addAttribute("fqArr", fqArr);
-			for(String s : fqArr) {
-				query.addFilterQuery("spec:"+s);
-				String[] fqKV = s.split("@");
-				fqmap.put(fqKV[0], fqKV[1]);
+			if(fqArr != null && fqArr.length > 0) {
+				fq = "";
+				for(String s : fqArr) {
+					query.addFilterQuery("spec:"+s);
+					String[] fqKV = s.split("@");
+					fqmap.put(fqKV[0], fqKV[1]);
+					fq += s+","; // 重新组装FQ
+				}
+				m.addAttribute("fq", fq = fq.substring(0, fq.length()-1));
 			}
 		}
 		
 		/** 处理搜索结果 */
         QueryResponse response = client.query(query);
-        Map<String, List<SpecVo>> facets = solrService.getFacets(response, fqmap);
+        Map<String, List<SpecVo>> facets = solrService.getFacets(response);
         m.addAttribute("facets", facets);
         String[] ids = {};
         ids = facets.keySet().toArray(ids);
@@ -95,21 +101,28 @@ public class SolrController {
         m.addAttribute("list", clist);
         
         /** 分类 */
-        // categoryService.finAll();
+        m.addAttribute("category", categoryService.finAll());
         
         return "search/commodity-list";
 	}
 
-	private String[] getDistinct(String[] array) {
-		List<String> list = new ArrayList<>();  
-		for(int i=0;i<array.length;i++){  
+	private String[] getFilterQueryArray(String filterQuery) {
+		List<String> list = new ArrayList<>(); 
+		
+		if(StringUtils.isBlank(filterQuery)) return list.toArray(new String[list.size()]);
+		filterQuery = filterQuery.replace(",+", ",");
+		
+		String[] array = filterQuery.split(",");
+		for(int i=0;i<array.length;i++){
+			System.out.println(">>"+array[i]);
+			if(StringUtils.isBlank(array[i])) continue;
 		    for(int j=i+1;j<array.length;j++){
 		        if(array[i].equals(array[j])){  
 		            j = ++i;  
-		        }  
-		    }  
+		        }
+		    }
 		    list.add(array[i]);
-		}  
+		}
 		return list.toArray(new String[list.size()]);  
 	}
 	

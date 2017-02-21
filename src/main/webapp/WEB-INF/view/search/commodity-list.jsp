@@ -36,10 +36,10 @@
             </div>
             <div class="content">
             	<div class="crumbs">全部结果 > 
-            		<c:forEach items="${fqArr}" var="fq">
+            		<c:forEach items="${fqArr}" var="item">
             			<span class="spec">
-            				${spec[fn:substring(fq, 0, fn:indexOf(fq, "@"))].name}:${fn:substring(fq, fn:indexOf(fq, "@")+1, -1)}
-           					<span>×</span>
+            				${spec[fn:substring(item, 0, fn:indexOf(item, "@"))].name}:${fn:substring(item, fn:indexOf(item, "@")+1, -1)}
+           					<span><a href="${rootPath}solr/query?kw=${kw}&fq=${fn:replace(fq, item, '')}">×</a></span>
            				</span>
             			> 
             		</c:forEach> 
@@ -51,7 +51,7 @@
 	            			<div class="label">${spec[facets.key].name}：</div>
 	            			<ul>
 		            			<c:forEach items="${facets.value}" var="facetItem">
-		            				<li><a href="${rootPath}/solr/query?kw=${kw}&fq=<c:if test="${!empty fq}">${fq},</c:if>${spec[facets.key].id}@${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
+		            				<li><a href="${rootPath}solr/query?kw=${kw}&fq=<c:if test="${!empty fq}">${fq},</c:if>${spec[facets.key].id}@${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
 		            			</c:forEach>
 	            			</ul>
             			</div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="c-price"><strong>￥${item.salePrice}</strong></div>
                                 <div class="c-re-num">已有<span class="blue">60</span>人评价</div>
-                                <div class="c-store">苹果官方旗舰店<span class="FGM">G-Mall自营</span></div>
+                                <div class="c-store">苹果官方旗舰店<span class="FGM">自营</span></div>
                             </div>
                         </li>
                         </c:forEach>

@@ -15,7 +15,7 @@ import com.lw.solr.vo.SpecVo;
 @Service
 public class SolrService {
 	
-	public Map<String, List<SpecVo>> getFacets(QueryResponse response, Map<String, String> fqmap) {
+	public Map<String, List<SpecVo>> getFacets(QueryResponse response) {
 		List<FacetField> facets = response.getFacetFields(); //返回的facet列表
 		// map<specId, list<value:count>>
         Map<String, List<SpecVo>> facetMap = new HashMap<String, List<SpecVo>>();
