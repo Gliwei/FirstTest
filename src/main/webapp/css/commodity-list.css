@@ -33,6 +33,21 @@
 	/* border: 1px dashed #9F0; */
 }
 
+div.crumbs {
+	font-size: 13px;
+	line-height: 20px;
+	margin-bottom: 8px;
+	color: #333;
+}
+div.crumbs span.spec {
+	display: inline-block;
+	border: 1px solid orange;
+	padding: 0px 5px;
+	background-color: orange;
+	color: #FFF;
+	cursor: pointer;
+}
+
 div.select-box {
 	border: 1px solid #EEE;
 	border-bottom: none;

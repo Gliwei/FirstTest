@@ -15,14 +15,14 @@ import com.lw.solr.vo.SpecVo;
 @Service
 public class SolrService {
 	
-	public Map<String, List<SpecVo>> getFacets(QueryResponse response) {
+	public Map<String, List<SpecVo>> getFacets(QueryResponse response, Map<String, String> fqmap) {
 		List<FacetField> facets = response.getFacetFields(); //返回的facet列表
 		// map<specId, list<value:count>>
         Map<String, List<SpecVo>> facetMap = new HashMap<String, List<SpecVo>>();
         for (FacetField facet : facets) {
             List<Count> counts = facet.getValues();
             for (Count count : counts) {
-                String[] name = count.getName().split(":");
+                String[] name = count.getName().split("@");
                 List<SpecVo> valueList = facetMap.get(name[0]);
                 valueList = valueList==null?new ArrayList<SpecVo>():valueList;
                 SpecVo vo = new SpecVo();

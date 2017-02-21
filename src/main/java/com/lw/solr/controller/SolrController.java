@@ -3,8 +3,12 @@ package com.lw.solr.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -35,29 +39,46 @@ public class SolrController {
 	
 	@SuppressWarnings("resource")
 	@RequestMapping("/query")
-	public String query(Model m, String kw, String fq) throws SolrServerException, IOException {
+	public String query(HttpServletRequest request, Model m, String kw, String fq) throws SolrServerException, IOException {
 		HttpSolrClient client = new HttpSolrClient("http://114.215.223.6:8983/solr/commodity/");
 		SolrQuery query = new SolrQuery(StringUtils.isBlank(kw)?"":"*"+kw+"*");
 		
 		m.addAttribute("kw", kw);
 		m.addAttribute("fq", fq);
-		/** facet */
+		
+		/** 拼装查询参数 */
 		query.setFacet(true);
 		query.addFacetField("spec"); // 设置需要facet的字段
 		query.setFacetLimit(10); // 限制facet返回的数量
+		// 过滤条件FilterQuery
+		Map<String, String> fqmap = new HashMap<>();
 		if(StringUtils.isNotBlank(fq)) {
-			String[] fqs = fq.split(",");
-			for(String s : fqs) {
-				query.addFilterQuery(s);
+			String[] fqArr = getDistinct(fq.split(","));
+			m.addAttribute("fqArr", fqArr);
+			for(String s : fqArr) {
+				query.addFilterQuery("spec:"+s);
+				String[] fqKV = s.split("@");
+				fqmap.put(fqKV[0], fqKV[1]);
 			}
 		}
+		
+		/** 处理搜索结果 */
         QueryResponse response = client.query(query);
-        Map<String, List<SpecVo>> facets = solrService.getFacets(response);
+        Map<String, List<SpecVo>> facets = solrService.getFacets(response, fqmap);
         m.addAttribute("facets", facets);
         String[] ids = {};
         ids = facets.keySet().toArray(ids);
         Map<String, Spec> spec = specService.getSpecMap(ids);
         m.addAttribute("spec", spec);
+        // 去掉已经选择过的
+        Iterator<Map.Entry<String, List<SpecVo>>> it = facets.entrySet().iterator();  
+        while(it.hasNext()){
+            Map.Entry<String, List<SpecVo>> entry = it.next();  
+            String key = entry.getKey();
+            if(fqmap.containsKey(key)){
+                it.remove();
+            }
+        }
         
         /** 商品信息 */
         SolrDocumentList docList = response.getResults();
@@ -77,6 +98,19 @@ public class SolrController {
         // categoryService.finAll();
         
         return "search/commodity-list";
+	}
+
+	private String[] getDistinct(String[] array) {
+		List<String> list = new ArrayList<>();  
+		for(int i=0;i<array.length;i++){  
+		    for(int j=i+1;j<array.length;j++){
+		        if(array[i].equals(array[j])){  
+		            j = ++i;  
+		        }  
+		    }  
+		    list.add(array[i]);
+		}  
+		return list.toArray(new String[list.size()]);  
 	}
 	
 }

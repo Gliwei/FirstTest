@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,32 +32,26 @@
 		                		
 						</c:forEach>
 					</c:forEach>
-                	<!-- <div class="item">
-                		<div class="item-title"><a href="#">电子产品</a></div>
-                		<ul>
-                			<li><a href="#">笔记本电脑</a></li>
-                			<li><a href="#">智能手机</a></li>
-                			<li><a href="#">智能手表</a></li>
-                		</ul>
-                	</div>
-                	<div class="item">
-                		<div class="item-title"><a href="#">服饰鞋帽</a></div>
-                		<ul>
-                			<li><a href="#">T恤</a></li>
-                			<li><a href="#">牛仔裤</a></li>
-                			<li><a href="#">皮鞋</a></li>
-                		</ul>
-                	</div> -->
                 </div>
             </div>
             <div class="content">
+            	<div class="crumbs">全部结果 > 
+            		<c:forEach items="${fqArr}" var="fq">
+            			<span class="spec">
+            				${spec[fn:substring(fq, 0, fn:indexOf(fq, "@"))].name}:${fn:substring(fq, fn:indexOf(fq, "@")+1, -1)}
+           					<span>×</span>
+           				</span>
+            			> 
+            		</c:forEach> 
+            		${kw}
+           		</div>
             	<div class="select-box">
             		<c:forEach items="${facets}" var="facets">
             			<div class="row">
 	            			<div class="label">${spec[facets.key].name}：</div>
 	            			<ul>
 		            			<c:forEach items="${facets.value}" var="facetItem">
-		            				<li><a href="${rootPath}/solr/query?kw=${kw}&fq=spec:*&#58${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
+		            				<li><a href="${rootPath}/solr/query?kw=${kw}&fq=<c:if test="${!empty fq}">${fq},</c:if>${spec[facets.key].id}@${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
 		            			</c:forEach>
 	            			</ul>
             			</div>
