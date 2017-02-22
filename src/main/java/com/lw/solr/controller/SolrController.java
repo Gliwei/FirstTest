@@ -3,7 +3,6 @@ package com.lw.solr.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -52,6 +50,12 @@ public class SolrController {
 		query.setFacet(true);
 		query.addFacetField("spec"); // 设置需要facet的字段
 		query.setFacetLimit(10); // 限制facet返回的数量
+		
+		// group 根据分类来判断是否需要聚合，一般电子产品不需要聚合，服饰类需要聚合
+		/*query.add("group", "true");
+		query.add("group.field","productId"); 
+		query.add("group.main","true");*/
+		
 		// 过滤条件FilterQuery
 		Map<String, String> fqmap = new HashMap<>();
 		if(StringUtils.isNotBlank(fq)) {
