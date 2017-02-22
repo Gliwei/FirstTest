@@ -84,6 +84,13 @@
                        	</c:if>
                     </ul>
                 </div>
+                <div class="search-debug">
+                     解析查询参数耗时：${searchParam} |
+                     查询耗时：${search} |
+                     解析查询结果耗时：${resultData} |
+                     查询商品耗时：${commodityData} |
+                     查询分类耗时：${categoryData}
+                 </div>
             </div>
         </div>
     </div>

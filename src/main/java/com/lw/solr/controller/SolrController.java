@@ -47,6 +47,7 @@ public class SolrController {
 		
 		m.addAttribute("kw", kw);
 		
+		long startTime = System.currentTimeMillis();
 		/** 拼装查询参数 */
 		query.setFacet(true);
 		query.addFacetField("spec"); // 设置需要facet的字段
@@ -67,9 +68,14 @@ public class SolrController {
 				m.addAttribute("fq", fq = fq.substring(0, fq.length()-1));
 			}
 		}
+		long searchParamEndTime = System.currentTimeMillis();
+		m.addAttribute("searchParam", searchParamEndTime-startTime);
 		
 		/** 处理搜索结果 */
         QueryResponse response = client.query(query);
+        long searchEndTime = System.currentTimeMillis();
+        m.addAttribute("search", searchEndTime-searchParamEndTime);
+        
         Map<String, List<SpecVo>> facets = solrService.getFacets(response);
         m.addAttribute("facets", facets);
         String[] ids = {};
@@ -85,6 +91,8 @@ public class SolrController {
                 it.remove();
             }
         }
+        long resultDataEndTime = System.currentTimeMillis();
+        m.addAttribute("resultData", resultDataEndTime-searchEndTime);
         
         /** 商品信息 */
         SolrDocumentList docList = response.getResults();
@@ -99,9 +107,13 @@ public class SolrController {
         	clist.add(cvo);
         }
         m.addAttribute("list", clist);
+        long commodityDataEndTime = System.currentTimeMillis();
+        m.addAttribute("commodityData", commodityDataEndTime-resultDataEndTime);
         
         /** 分类 */
         m.addAttribute("category", categoryService.finAll());
+        long categoryDataEndTime = System.currentTimeMillis();
+        m.addAttribute("categoryData", categoryDataEndTime-commodityDataEndTime);
         
         return "search/commodity-list";
 	}

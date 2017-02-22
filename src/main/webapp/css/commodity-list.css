@@ -118,3 +118,7 @@ ul.clist li div.c-re-num {
 ul.clist li div.c-store {
 	margin-top: 3px;
 }
+div.search-debug {
+	clear: left;
+	color: #333;
+}
