@@ -5,7 +5,7 @@
 	<resultMap type="spec" id="brandResultMap">
 		<id property="id" column="id" />
 		<result property="name" column="neme" />
-		<result property="categoryId" column="categoryId" />
+		propertyitems
 	</resultMap>
 
 	<!--Array:forech中的collection属性类型是array,collection的值必须是:list,item的值可以随意,Dao接口中参数名字随意 -->  

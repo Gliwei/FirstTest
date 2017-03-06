@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lw.basic.entity.Commodity;
+import com.lw.basic.entity.Property;
 import com.lw.basic.service.CategoryService;
 import com.lw.basic.service.CommodityService;
+import com.lw.basic.service.PropertyService;
 
 
 @Controller
@@ -20,6 +22,7 @@ public class CommodityController {
 
 	@Autowired CommodityService commodityService;
 	@Autowired CategoryService categoryService;
+	@Autowired PropertyService propertyService;
 	
 	private static final int pageSize = 10;
 	
@@ -47,6 +50,8 @@ public class CommodityController {
 	@RequestMapping("/{sku}")
 	public String commodity(Model model, @PathVariable("sku") String sku){
 		Commodity commodity = commodityService.findBySku(sku);
+		List<Property> allProList = propertyService.findByProductId(commodity.getProductId());
+		List<Property> peoList = propertyService.findByCommodityId(commodity.getId());
 		model.addAttribute("commodity", commodity);
 		return "commodity";
 	}
