@@ -1,8 +1,12 @@
 package com.lw.util;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BaseEntity {
+public class BaseEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4955089756682380424L;
+
 	private String id;
 	
 	private Long version;
