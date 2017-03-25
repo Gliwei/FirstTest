@@ -3,19 +3,22 @@
 <mapper namespace="com.lw.basic.dao.CategoryMapper">
 
 	<resultMap id="categoryResultMap" type="Category">
-        <id column="id" property="id"></id>
-        <result column="name" property="name"></result>
-        <association property="parent" column="parentId" select="selectCategoryById"></association><!-- 递归查询，只能用select方式 -->
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <association property="parent" column="parentId" select="selectCategoryById" />
         <collection property="children" column="id" ofType="Category" javaType="java.util.ArrayList"
-            select="selectCategoryChildren"></collection><!-- 递归查询，只能用select方式 -->
+            select="selectCategoryChildren" />
     </resultMap>
+    
     <select id="selectAllCategory" resultMap="categoryResultMap" useCache="true">
         select * from category where parentId is null;
     </select>
+    
     <select id="selectCategoryById" resultMap="categoryResultMap"
         parameterType="String">
         select * from category where id=#{parentId}
     </select>
+    
     <select id="selectCategoryChildren" resultMap="categoryResultMap"
         parameterType="String">
         select * from category where parentId=#{id}
