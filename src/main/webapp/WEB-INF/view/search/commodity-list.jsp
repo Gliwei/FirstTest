@@ -51,7 +51,9 @@
 	            			<div class="label">${spec[facets.key].name}：</div>
 	            			<ul>
 		            			<c:forEach items="${facets.value}" var="facetItem">
-		            				<li><a href="${rootPath}solr/query?kw=${kw}&fq=<c:if test="${!empty fq}">${fq},</c:if>${spec[facets.key].id}@${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
+		            				<c:if test="${facetItem.count!=0}">
+		            					<li><a href="${rootPath}solr/query?kw=${kw}&fq=<c:if test="${!empty fq}">${fq},</c:if>${spec[facets.key].id}@${facetItem.name}">${facetItem.name}(${facetItem.count})</a></li>
+		            				</c:if>
 		            			</c:forEach>
 	            			</ul>
             			</div>
@@ -85,11 +87,11 @@
                     </ul>
                 </div>
                 <div class="search-debug">
-                     解析查询参数耗时：${searchParam} |
-                     查询耗时：${search} |
-                     解析查询结果耗时：${resultData} |
-                     查询商品耗时：${commodityData} |
-                     查询分类耗时：${categoryData}
+			                     解析查询参数耗时：${searchParam} |
+			                     查询耗时：${search} |
+			                     解析查询结果耗时：${resultData} |
+			                     查询商品耗时：${commodityData} |
+			                     查询分类耗时：${categoryData}
                  </div>
             </div>
         </div>
