@@ -10,8 +10,8 @@
 	<div class="top-bar">
 		<div class="base">
 			<ul class="left-menu">
-				<li><a href="#">G-Mall首页</a></li>
-				<li><a href="#">Welcome to G-Mall</a></li>
+				<li><a href="${rootPath}index/">首页</a></li>
+				<li><a href="${rootPath}index/">Welcome to G-Mall</a></li>
 				<li><a href="#">请登录</a></li>
 				<li><a href="#">免费注册</a></li>
 			</ul>
@@ -25,7 +25,7 @@
 	</div>
    	<div class="base">
        	<div class="logo-line">
-       		<div class="logo"><img src="${rootPath}images/logo.png" width="210px" style="margin-top: 30px"></div>
+       		<div class="logo"><a href="${rootPath}index/"><img src="${rootPath}images/logo.png" width="210px" style="margin-top: 30px"></a></div>
        		<div class="search-warp">
        			<form action="${rootPath}solr/query">
        			<div class="s-box">
@@ -34,9 +34,9 @@
        			</div>
        			</form>
        			<div class="s-label-line">
-       				<a href="#">mac</a>
-       				<a href="#">iPhone</a>
-       				<a href="#">iPad</a>
+       				<a href="${rootPath}solr/query?kw=Mac">Mac</a>
+       				<a href="${rootPath}solr/query?kw=外星人">外星人</a>
+       				<a href="${rootPath}solr/query?kw=笔记本">笔记本</a>
       			</div>
        		</div>
         </div>
